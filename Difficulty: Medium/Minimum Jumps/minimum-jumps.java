@@ -1,33 +1,22 @@
 class Solution {
     static int minJumps(int[] arr) {
-        // code here
          int n = arr.length;
+         
+        int[] dp = new int[n];
+        Arrays.fill(dp, Integer.MAX_VALUE);
+        dp[n - 1] = 0;
 
-        if (n <= 1)
-            return 0;
-
-        if (arr[0] == 0)
-            return -1;
-
-        int jumps = 1;
-        int farthest = arr[0];
-        int currentEnd = arr[0];
-
-        for (int i = 1; i < n; i++) {
-            if (i == n - 1)
-                return jumps;
-
-            farthest = Math.max(farthest, i + arr[i]);
-
-            if (i == currentEnd) {
-                jumps++;
-                currentEnd = farthest;
-
-                if (currentEnd <= i)
-                    return -1;
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i + 1; j <= i + arr[i] && j < n; j++) {
+                if (dp[j] != Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i], 1 + dp[j]);
+                }
             }
         }
+        
+        if (dp[0] == Integer.MAX_VALUE)
+            return -1;
 
-        return -1;
+        return dp[0];
     }
 }
