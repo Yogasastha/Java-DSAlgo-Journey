@@ -1,6 +1,6 @@
 # Java DSAlgo Journey 🚀
 
-Welcome to my daily coding challenge repository! This is a dedicated space where I solve one Data Structures and Algorithms (DSA) problem each day using Java.
+Welcome to my daily coding challenge repository!! This is a dedicated space where I solve one Data Structures and Algorithms (DSA) problem each day using Java.
 
 The goal of this journey is to:
 
